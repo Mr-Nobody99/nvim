@@ -1,0 +1,42 @@
+return {
+  -- {
+  --   "rcarriga/nvim-dap-ui",
+  --   opts = {
+  --     layouts = {
+  --
+  --       {
+  --         size = 80,
+  --         position = "right",
+  --         elements = {
+  --           {
+  --             id = "breakpoints",
+  --             size = 0.3,
+  --           },
+  --           {
+  --             id = "stacks",
+  --             size = 0.3,
+  --           },
+  --           {
+  --             id = "scopes",
+  --             size = 0.3,
+  --           },
+  --         },
+  --       },
+  --       {
+  --         size = 25,
+  --         position = "bottom",
+  --         elements = {
+  --           {
+  --             id = "watches",
+  --             size = 0.75,
+  --           },
+  --           {
+  --             id = "repl",
+  --             size = 0.25,
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
+}
