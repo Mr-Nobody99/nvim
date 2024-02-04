@@ -20,11 +20,7 @@ dap.configurations["typescript"] = {
     runtimeExecutable = "tsx",
     cwd = "${workspaceFolder}",
     console = "integratedTerminal",
-
-    -- attachSimplePort = 9229,
-    -- runtimeArgs = { "--loader=ts-node/esm" },
     skipFiles = { "<node_internals>/**", "${workspaceFolder}/node_modules/**" },
-    -- resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
   },
   {
     name = "Launch file deno",
