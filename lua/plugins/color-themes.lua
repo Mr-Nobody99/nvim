@@ -5,7 +5,7 @@ return {
     priority = 1000,
     config = function()
       require("tokyonight").setup({
-        style = "day",
+        style = "moon",
         transparent = false,
         day_brightness = 0.4,
         terminal_colors = true,
