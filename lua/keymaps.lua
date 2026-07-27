@@ -1,19 +1,20 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", {desc = "Clear highlight search with <Esc>"})
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight search with <Esc>" })
 
 -- Prevent yank on replace
-vim.keymap.set("x", "p", [["_dP]], {desc = "Paste over selection without replacing yanked text"})
+vim.keymap.set("x", "p", [["_dP]], { desc = "Paste over selection without replacing yanked text" })
 -- Delete without saving to any register
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]], { desc = "Delete without yanking"})
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
 
 -- Move Lines
-vim.keymap.set("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
-vim.keymap.set("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
-vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
-vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
-vim.keymap.set("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
-vim.keymap.set("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+-- vim.keymap.set("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
+-- vim.keymap.set("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
+-- vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+-- vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+-- vim.keymap.set("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
+-- vim.keymap.set("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 
 -- Move between windows
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
@@ -28,7 +29,7 @@ vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
 -- Split windows
-vim.keymap.set("n", "<leader>wv", "<C-W>v", {desc = "Split Window Vertical"})
+vim.keymap.set("n", "<leader>wv", "<C-W>v", { desc = "Split Window Vertical" })
 vim.keymap.set("n", "<leader>wh", "<C-W>s")
 
 -- Resize window
@@ -45,11 +46,21 @@ vim.keymap.set("x", ">", ">gv")
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines without moving cursor" })
 
 -- Save file
-vim.keymap.set({"i", "x", "n", "s"}, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
 vim.keymap.set("n", "<leader>re", "<cmd>restart<CR>", { desc = "Restart Neovim (:restart)" })
 
-vim.keymap.set("n", "<leader>u", function()
-    vim.cmd.packadd("nvim.undotree")
-    require("undotree").open()
+vim.keymap.set("n", "<leader>ut", function()
+	vim.cmd.packadd("nvim.undotree")
+	require("undotree").open()
 end, { desc = "Toggle builtin undotree" })
+
+vim.keymap.set("n", "<leader>ul", function()
+	vim.wo.rnu = not vim.wo.rnu
+	vim.notify("Relative Numbers: " .. tostring(vim.wo.rnu))
+end, { desc = "Toggle Relative Line Number" })
+
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go To Definition" })
+vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, { desc = "Go To Type Definition" })
+
+vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })

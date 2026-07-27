@@ -1,0 +1,27 @@
+vim.pack.add({"https://github.com/nvim-treesitter/nvim-treesitter.git"})
+
+require("nvim-treesitter").install({
+  "bash",
+  "c",
+  "diff",
+  "html",
+  "javascript",
+  "jsdoc",
+  "json",
+  "lua",
+  "luadoc",
+  "luap",
+  "markdown",
+  "markdown_inline",
+  "printf",
+  "python",
+  "query",
+  "regex",
+  "toml",
+  "tsx",
+  "typescript",
+  "vim",
+  "vimdoc",
+  "xml",
+  "yaml",
+})
